@@ -7,19 +7,40 @@
 //
 
 import UIKit
+import Alamofire
+import UnboxedAlamofire
 
 class ViewController: UICollectionViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    private var books = [Book]()
+    
+    private func retrieve() {
+        Alamofire.request("http://henri-potier.xebia.fr/books/")
+            .responseArray { (response: DataResponse<[Book]>) in
+                guard let books = response.result.value else {
+                    return
+                }
+                self.books = books
+                self.collectionView?.reloadData()
+            }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        retrieve()
     }
-
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return books.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell else {
+            fatalError()
+        }
+        cell.configure(with: books[indexPath.row])
+        return cell
+    }
 
 }
 

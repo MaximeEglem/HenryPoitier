@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4215F7ED1EEAB7D80052D5A2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4215F7EC1EEAB7D80052D5A2 /* CollectionViewCell.swift */; };
 		4264AF1C1EEAA1B900EC0927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264AF1B1EEAA1B900EC0927 /* AppDelegate.swift */; };
 		4264AF1E1EEAA1B900EC0927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264AF1D1EEAA1B900EC0927 /* ViewController.swift */; };
 		4264AF211EEAA1B900EC0927 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF1F1EEAA1B900EC0927 /* Main.storyboard */; };
 		4264AF231EEAA1B900EC0927 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF221EEAA1B900EC0927 /* Assets.xcassets */; };
 		4264AF261EEAA1B900EC0927 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF241EEAA1B900EC0927 /* LaunchScreen.storyboard */; };
+		4264AF2F1EEAAE5200EC0927 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4264AF2E1EEAAE5200EC0927 /* Book.swift */; };
 		7533B1A66DC0F2488FB7C02B /* Pods_HenryPoitierXKE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3726D475FA887A0565CCE9FC /* Pods-HenryPoitierXKE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HenryPoitierXKE.release.xcconfig"; path = "Pods/Target Support Files/Pods-HenryPoitierXKE/Pods-HenryPoitierXKE.release.xcconfig"; sourceTree = "<group>"; };
+		4215F7EC1EEAB7D80052D5A2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4264AF181EEAA1B900EC0927 /* HenryPoitierXKE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryPoitierXKE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4264AF1B1EEAA1B900EC0927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4264AF1D1EEAA1B900EC0927 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		4264AF221EEAA1B900EC0927 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4264AF251EEAA1B900EC0927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4264AF271EEAA1B900EC0927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4264AF2E1EEAAE5200EC0927 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		AC299FA3A556D2408FED82A0 /* Pods-HenryPoitierXKE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HenryPoitierXKE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HenryPoitierXKE/Pods-HenryPoitierXKE.debug.xcconfig"; sourceTree = "<group>"; };
 		C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HenryPoitierXKE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,6 +53,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4215F7EB1EEAB27B0052D5A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4215F7EC1EEAB7D80052D5A2 /* CollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4264AF0F1EEAA1B900EC0927 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4264AF2D1EEAA84600EC0927 /* Models */,
+				4215F7EB1EEAB27B0052D5A2 /* Views */,
 				4264AF1B1EEAA1B900EC0927 /* AppDelegate.swift */,
 				4264AF1D1EEAA1B900EC0927 /* ViewController.swift */,
 				4264AF1F1EEAA1B900EC0927 /* Main.storyboard */,
@@ -84,6 +97,7 @@
 		4264AF2D1EEAA84600EC0927 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4264AF2E1EEAAE5200EC0927 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,6 +236,8 @@
 			files = (
 				4264AF1E1EEAA1B900EC0927 /* ViewController.swift in Sources */,
 				4264AF1C1EEAA1B900EC0927 /* AppDelegate.swift in Sources */,
+				4215F7ED1EEAB7D80052D5A2 /* CollectionViewCell.swift in Sources */,
+				4264AF2F1EEAAE5200EC0927 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
