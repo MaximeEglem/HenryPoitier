@@ -12,6 +12,7 @@
 		4264AF211EEAA1B900EC0927 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF1F1EEAA1B900EC0927 /* Main.storyboard */; };
 		4264AF231EEAA1B900EC0927 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF221EEAA1B900EC0927 /* Assets.xcassets */; };
 		4264AF261EEAA1B900EC0927 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF241EEAA1B900EC0927 /* LaunchScreen.storyboard */; };
+		496D2E571EF2BABB00A73C36 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D2E561EF2BABB00A73C36 /* Book.swift */; };
 		7533B1A66DC0F2488FB7C02B /* Pods_HenryPoitierXKE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		4264AF221EEAA1B900EC0927 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4264AF251EEAA1B900EC0927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4264AF271EEAA1B900EC0927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		496D2E561EF2BABB00A73C36 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = HenryPoitierXKE/Book.swift; sourceTree = SOURCE_ROOT; };
 		AC299FA3A556D2408FED82A0 /* Pods-HenryPoitierXKE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HenryPoitierXKE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HenryPoitierXKE/Pods-HenryPoitierXKE.debug.xcconfig"; sourceTree = "<group>"; };
 		C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HenryPoitierXKE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 		4264AF2D1EEAA84600EC0927 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				496D2E561EF2BABB00A73C36 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,7 +134,6 @@
 				TargetAttributes = {
 					4264AF171EEAA1B900EC0927 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 8H9F4GW3CK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -222,6 +224,7 @@
 			files = (
 				4264AF1E1EEAA1B900EC0927 /* ViewController.swift in Sources */,
 				4264AF1C1EEAA1B900EC0927 /* AppDelegate.swift in Sources */,
+				496D2E571EF2BABB00A73C36 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +348,7 @@
 			baseConfigurationReference = AC299FA3A556D2408FED82A0 /* Pods-HenryPoitierXKE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8H9F4GW3CK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HenryPoitierXKE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.xebia.HenryPoitierXKE;
@@ -359,7 +362,7 @@
 			baseConfigurationReference = 3726D475FA887A0565CCE9FC /* Pods-HenryPoitierXKE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8H9F4GW3CK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HenryPoitierXKE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.xebia.HenryPoitierXKE;
