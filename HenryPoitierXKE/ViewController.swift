@@ -9,13 +9,17 @@
 import UIKit
 import Alamofire
 import UnboxedAlamofire
+import Kingfisher
 
 class ViewController: UICollectionViewController {
 
+    @IBOutlet weak var BookCollectionView: UICollectionView!
     private var books = [Book]()
     override func viewDidLoad() {
         super.viewDidLoad()
         getBooks()
+//        self.BookCollectionView.delegate = self
+//        self.BookCollectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +35,25 @@ class ViewController: UICollectionViewController {
                     return
                 }
                 self.books = books
+                self.BookCollectionView?.reloadData()
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return books.count
+    }
 
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? BookCollectionViewCell else {
+            fatalError()
+        }
+        
+        //configure cell
+        let book = books[indexPath.row]
+        cell.titleLabel.text = book.title
+
+
+        return cell
+    }
 }
 

@@ -13,6 +13,7 @@
 		4264AF231EEAA1B900EC0927 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF221EEAA1B900EC0927 /* Assets.xcassets */; };
 		4264AF261EEAA1B900EC0927 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264AF241EEAA1B900EC0927 /* LaunchScreen.storyboard */; };
 		496D2E571EF2BABB00A73C36 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D2E561EF2BABB00A73C36 /* Book.swift */; };
+		496D2E591EF2BD9A00A73C36 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D2E581EF2BD9A00A73C36 /* BookCollectionViewCell.swift */; };
 		7533B1A66DC0F2488FB7C02B /* Pods_HenryPoitierXKE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4264AF251EEAA1B900EC0927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4264AF271EEAA1B900EC0927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496D2E561EF2BABB00A73C36 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = HenryPoitierXKE/Book.swift; sourceTree = SOURCE_ROOT; };
+		496D2E581EF2BD9A00A73C36 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC299FA3A556D2408FED82A0 /* Pods-HenryPoitierXKE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HenryPoitierXKE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HenryPoitierXKE/Pods-HenryPoitierXKE.debug.xcconfig"; sourceTree = "<group>"; };
 		C496F4C06D59E51D0B965F78 /* Pods_HenryPoitierXKE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HenryPoitierXKE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				4264AF1B1EEAA1B900EC0927 /* AppDelegate.swift */,
 				4264AF1D1EEAA1B900EC0927 /* ViewController.swift */,
 				4264AF1F1EEAA1B900EC0927 /* Main.storyboard */,
+				496D2E581EF2BD9A00A73C36 /* BookCollectionViewCell.swift */,
 				4264AF221EEAA1B900EC0927 /* Assets.xcassets */,
 				4264AF241EEAA1B900EC0927 /* LaunchScreen.storyboard */,
 				4264AF271EEAA1B900EC0927 /* Info.plist */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4264AF1E1EEAA1B900EC0927 /* ViewController.swift in Sources */,
+				496D2E591EF2BD9A00A73C36 /* BookCollectionViewCell.swift in Sources */,
 				4264AF1C1EEAA1B900EC0927 /* AppDelegate.swift in Sources */,
 				496D2E571EF2BABB00A73C36 /* Book.swift in Sources */,
 			);
