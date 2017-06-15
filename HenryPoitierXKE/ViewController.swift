@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import UnboxedAlamofire
 
 class ViewController: UICollectionViewController {
 
+    private var books = [Book]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        getBooks()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,16 @@ class ViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    private func getBooks() {
+        Alamofire.request("http://henri-potier.xebia.fr/books/")
+            .responseArray { (response: DataResponse<[Book]>) in
+                //Swift 2
+                guard let books = response.result.value else {
+                    return
+                }
+                self.books = books
+        }
+    }
 
 }
 
