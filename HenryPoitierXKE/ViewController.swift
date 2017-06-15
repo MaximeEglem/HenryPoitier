@@ -52,6 +52,9 @@ class ViewController: UICollectionViewController {
         let book = books[indexPath.row]
         cell.titleLabel.text = book.title
 
+        let url = URL(string: book.cover)
+        let resource = ImageResource(downloadURL: url!, cacheKey: book.cover)
+        cell.bookImageView.kf.setImage(with: resource)
 
         return cell
     }
