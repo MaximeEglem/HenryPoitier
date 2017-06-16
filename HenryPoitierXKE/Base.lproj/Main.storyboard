@@ -42,21 +42,37 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-7e-ClL">
-                                            <rect key="frame" x="197" y="173" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="icons8-Minus-50"/>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQk-3u-P4C">
-                                            <rect key="frame" x="323" y="173" width="25" height="25"/>
+                                            <rect key="frame" x="337" y="170" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="icons8-Plus-50"/>
                                         </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AGt-Dc-STi">
+                                            <rect key="frame" x="289" y="168" width="44" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-7e-ClL">
+                                            <rect key="frame" x="258" y="170" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="icons8-Minus-50"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6av-Gq-wNO">
+                                            <rect key="frame" x="161" y="168" width="71" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="bookImageView" destination="YBr-Y6-FcJ" id="QLX-tq-4W1"/>
+                                    <outlet property="bookNumberWanted" destination="AGt-Dc-STi" id="Ozn-z2-zlY"/>
+                                    <outlet property="priceLabel" destination="6av-Gq-wNO" id="ghF-D8-q44"/>
                                     <outlet property="titleLabel" destination="STF-Yp-ZSc" id="iL4-cJ-sIF"/>
                                 </connections>
                             </collectionViewCell>
@@ -72,6 +88,9 @@
                                 <rect key="frame" x="330" y="-10" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icons8-Shopping Cart-64"/>
+                                <connections>
+                                    <segue destination="rD0-8O-VKb" kind="show" identifier="toDetailViewController" id="2nl-5K-GlS"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -83,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1292.753623188406" y="178.53260869565219"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="7Gm-F4-vA7">
             <objects>
-                <viewController id="rD0-8O-VKb" sceneMemberID="viewController">
+                <viewController id="rD0-8O-VKb" customClass="DetailViewController" customModule="HenryPoitierXKE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UWu-x5-oGv"/>
                         <viewControllerLayoutGuide type="bottom" id="g4N-dC-HhU"/>
@@ -96,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gx-YS-Ihu">
-                                <rect key="frame" x="80" y="158" width="42" height="21"/>
+                                <rect key="frame" x="53" y="166" width="94" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -108,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3y-HN-jhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="179"/>
+            <point key="canvasLocation" x="2121.739130434783" y="178.53260869565219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mR0-G9-LgV">

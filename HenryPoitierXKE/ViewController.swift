@@ -9,24 +9,51 @@
 import UIKit
 import Alamofire
 import UnboxedAlamofire
-import Kingfisher
+
 
 class ViewController: UICollectionViewController {
 
     @IBOutlet weak var BookCollectionView: UICollectionView!
+    
     private var books = [Book]()
+    
+    private var booksOrdered = [String : BookOrder]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getBooks()
-//        self.BookCollectionView.delegate = self
-//        self.BookCollectionView.dataSource = self
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailViewController" {
+            let detailViewController = segue.destination as! DetailViewController
+            
+            booksOrdered["c8fabf68-8374-48fe-a7ea-a00ccd07afff"] = BookOrder(book: books[0])
+            
+            detailViewController.booksOrdered = self.booksOrdered
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return books.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? BookCollectionViewCell else {
+            fatalError()
+        }
+        
+        cell.configureCell(with: books[indexPath.row], indexCell: indexPath.row )
+
+        return cell
+    }
+    
     private func getBooks() {
         Alamofire.request("http://henri-potier.xebia.fr/books/")
             .responseArray { (response: DataResponse<[Book]>) in
@@ -39,24 +66,9 @@ class ViewController: UICollectionViewController {
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? BookCollectionViewCell else {
-            fatalError()
-        }
-        
-        //configure cell
-        let book = books[indexPath.row]
-        cell.titleLabel.text = book.title
-
-        let url = URL(string: book.cover)
-        let resource = ImageResource(downloadURL: url!, cacheKey: book.cover)
-        cell.bookImageView.kf.setImage(with: resource)
-
-        return cell
-    }
+    
 }
 
