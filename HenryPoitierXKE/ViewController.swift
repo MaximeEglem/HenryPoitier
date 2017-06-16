@@ -13,10 +13,11 @@ import UnboxedAlamofire
 
 class ViewController: UICollectionViewController {
 
-    @IBOutlet weak var BookCollectionView: UICollectionView!
+    @IBOutlet weak var bookCollectionView: UICollectionView!
     
     private var books = [Book]()
-    
+
+
     private var booksOrdered = [String : BookOrder]()
     
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ class ViewController: UICollectionViewController {
                     return
                 }
                 self.books = books
-                self.BookCollectionView?.reloadData()
+                self.bookCollectionView?.reloadData()
         }
     }
     

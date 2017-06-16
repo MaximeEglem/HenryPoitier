@@ -27,11 +27,12 @@ extension Book: Unboxable {
 }
 
 struct BookOrder {
-    let title : String
+    let isbn, title : String
     let price : Double
     var number : Int
     
     init(book: Book) {
+        isbn = book.isbn
         title = book.title
         price = book.price
         number = 1
