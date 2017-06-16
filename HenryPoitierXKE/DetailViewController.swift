@@ -30,8 +30,10 @@ class DetailViewController: UIViewController {
             }
             totalPrice += value.price * Double(value.number)
         }
-        urlIsbn = urlIsbn.substring(to: urlIsbn.index(before: urlIsbn.endIndex))
-        getDiscount(isbns: urlIsbn)
+        if urlIsbn.characters.count > 1 {
+            urlIsbn = urlIsbn.substring(to: urlIsbn.index(before: urlIsbn.endIndex))
+            getDiscount(isbns: urlIsbn)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,13 +44,13 @@ class DetailViewController: UIViewController {
     private func getDiscount(isbns: String) {
         let url = "http://henri-potier.xebia.fr/books/\(isbns)/commercialOffers"
         Alamofire.request(url).responseObject { (response: DataResponse<Offers>) in
-            
+            print("Call URL : \(url)")
             guard let offers = response.result.value else {
                 return
             }
             self.offers = offers
 
-            self.bestDiscount.text = String(self.getBestDiscount())
+            self.bestDiscount.text = "\(self.getBestDiscount()) €"
         }
     }
     
@@ -62,7 +64,7 @@ class DetailViewController: UIViewController {
             discount.append((self.offers?.offers[1].value)!)
         }
         if (self.offers?.offers.count)!>=3 {
-            discount.append(Double(Int(self.totalPrice / 100)) * Double((self.offers?.offers[3].value)!))
+            discount.append(Double(Int(self.totalPrice / 100)) * Double((self.offers?.offers[2].value)!))
         }
   
         return discount.max()!

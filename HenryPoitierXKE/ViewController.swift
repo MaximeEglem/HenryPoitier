@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import UnboxedAlamofire
 
-
 class ViewController: UICollectionViewController {
 
     @IBOutlet weak var bookCollectionView: UICollectionView!
@@ -32,7 +31,7 @@ class ViewController: UICollectionViewController {
         if segue.identifier == "toDetailViewController" {
             let detailViewController = segue.destination as! DetailViewController
             
-            booksOrdered["c8fabf68-8374-48fe-a7ea-a00ccd07afff"] = BookOrder(book: books[0])
+            //booksOrdered["c8fabf68-8374-48fe-a7ea-a00ccd07afff"] = BookOrder(book: books[0])
             
             detailViewController.booksOrdered = self.booksOrdered
         }
@@ -44,21 +43,45 @@ class ViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? BookCollectionViewCell else {
-            fatalError()
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! BookCollectionViewCell
         
+        cell.addBookTapped.addTarget(self,action: #selector(addBookOrder(_:)),for: .touchUpInside)
+        cell.removeBookTapped.addTarget(self,action: #selector(removeBookOrder(_:)),for: .touchUpInside)
+        cell.bookNumberWanted.text = String(Int(cell.bookNumberWanted.text!)! + 1)
         cell.configureCell(with: books[indexPath.row], indexCell: indexPath.row )
 
         return cell
     }
     
+    func addBookOrder(_ sender: UIButton)
+    {
+        let tag = sender.tag
+        if booksOrdered[books[tag].isbn] != nil {
+            booksOrdered[books[tag].isbn]?.number += 1
+        }else {
+            booksOrdered[books[tag].isbn] = BookOrder(book: books[tag])
+        }
+        print("Add book \(books[tag].title)")
+    }
+    
+    func removeBookOrder(_ sender: UIButton)
+    {
+        let tag = sender.tag
+        if booksOrdered[books[tag].isbn] != nil {
+            if (booksOrdered[books[tag].isbn]?.number)! > 0 {
+                booksOrdered[books[tag].isbn]?.number -= 1
+            }
+        }
+        print("remove book \(books[tag].title)")
+    }
+    
     private func getBooks() {
-        Alamofire.request("http://henri-potier.xebia.fr/books/")
+        let url = "http://henri-potier.xebia.fr/books/"
+        Alamofire.request(url)
             .responseArray { (response: DataResponse<[Book]>) in
-                //Swift 2
+                print("Call URL : \(url)")
                 guard let books = response.result.value else {
                     return
                 }

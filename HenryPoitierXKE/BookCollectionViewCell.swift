@@ -9,11 +9,13 @@
 import UIKit
 import Kingfisher
 
+
 class BookCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var addBookTapped: UIButton!
     
     @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var removeBookTapped: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var bookNumberWanted: UITextField!
@@ -22,9 +24,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     func configureCell(with book: Book, indexCell: Int) {
         
-        
         addBookTapped.tag = indexCell
-        addBookTapped.addTarget(self, action: #selector(self.addBookClicked), for: .touchUpInside)
         
         bookNumberWanted.tag = indexCell
         titleLabel.text = book.title
@@ -34,11 +34,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         let resource = ImageResource(downloadURL: url!, cacheKey: book.cover)
         self.bookImageView.kf.setImage(with: resource)
         
-    }
-    
-    public func addBookClicked(_ sender: UIButton){
-        self.numberBooksOrdered += 1
-        print(sender.tag , numberBooksOrdered)
     }
 
 }
