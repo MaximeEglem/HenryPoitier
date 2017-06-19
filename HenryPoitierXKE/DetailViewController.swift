@@ -39,7 +39,6 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     private func getDiscount(isbns: String) {
         let url = "http://henri-potier.xebia.fr/books/\(isbns)/commercialOffers"
@@ -57,16 +56,16 @@ class DetailViewController: UIViewController {
     private func getBestDiscount() -> Double {
         
         var discount = [Double]()
-        if (self.offers?.offers.count)!>=1 {
-            discount.append(self.totalPrice * Double((self.offers?.offers[0].value)!) / 100)
+        for (_, offer) in (self.offers?.offers.enumerated())! {
+            switch offer.type {
+            case TypeOffer.percentage:
+                discount.append(self.totalPrice * Double(offer.value) / 100)
+            case TypeOffer.minus:
+                discount.append(offer.value)
+            case TypeOffer.slice:
+                discount.append(Double(Int(self.totalPrice / 100)) * Double(offer.value))
+            }
         }
-        if (self.offers?.offers.count)!>=2 {
-            discount.append((self.offers?.offers[1].value)!)
-        }
-        if (self.offers?.offers.count)!>=3 {
-            discount.append(Double(Int(self.totalPrice / 100)) * Double((self.offers?.offers[2].value)!))
-        }
-  
         return discount.max()!
     }
 }

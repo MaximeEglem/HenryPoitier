@@ -20,7 +20,7 @@ extension Offers: Unboxable {
 }
 
 struct Offer{
-    let type: String
+    let type: TypeOffer
     let value: Double
     let sliceValue: Double?
 }
@@ -31,4 +31,10 @@ extension Offer: Unboxable {
         self.value = try unboxer.unbox(key: "value")
         self.sliceValue = unboxer.unbox(key: "sliceValue")
     }
+}
+
+enum TypeOffer: String, UnboxableEnum {
+    case percentage
+    case minus
+    case slice
 }

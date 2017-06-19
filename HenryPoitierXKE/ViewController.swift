@@ -49,7 +49,6 @@ class ViewController: UICollectionViewController {
         
         cell.addBookTapped.addTarget(self,action: #selector(addBookOrder(_:)),for: .touchUpInside)
         cell.removeBookTapped.addTarget(self,action: #selector(removeBookOrder(_:)),for: .touchUpInside)
-        cell.bookNumberWanted.text = String(Int(cell.bookNumberWanted.text!)! + 1)
         cell.configureCell(with: books[indexPath.row], indexCell: indexPath.row )
 
         return cell
@@ -58,6 +57,10 @@ class ViewController: UICollectionViewController {
     func addBookOrder(_ sender: UIButton)
     {
         let tag = sender.tag
+        let cell = getCurrentCell(from: tag)
+        cell.numberBooksOrdered = cell.numberBooksOrdered + 1
+        cell.bookNumberWanted.text = "\(cell.numberBooksOrdered)"
+        
         if booksOrdered[books[tag].isbn] != nil {
             booksOrdered[books[tag].isbn]?.number += 1
         }else {
@@ -69,12 +72,22 @@ class ViewController: UICollectionViewController {
     func removeBookOrder(_ sender: UIButton)
     {
         let tag = sender.tag
+        let cell = getCurrentCell(from: tag)
+        cell.numberBooksOrdered = cell.numberBooksOrdered > 0 ? cell.numberBooksOrdered - 1 : cell.numberBooksOrdered
+        cell.bookNumberWanted.text = "\(cell.numberBooksOrdered)"
+        
+        
         if booksOrdered[books[tag].isbn] != nil {
             if (booksOrdered[books[tag].isbn]?.number)! > 0 {
                 booksOrdered[books[tag].isbn]?.number -= 1
             }
         }
         print("remove book \(books[tag].title)")
+    }
+    
+    func getCurrentCell(from index : Int) -> BookCollectionViewCell{
+        let indexPath = IndexPath(item: index, section: 0)
+        return self.bookCollectionView.cellForItem(at: indexPath) as! BookCollectionViewCell
     }
     
     private func getBooks() {

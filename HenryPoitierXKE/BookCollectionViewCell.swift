@@ -13,7 +13,6 @@ import Kingfisher
 class BookCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var addBookTapped: UIButton!
-    
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var removeBookTapped: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
